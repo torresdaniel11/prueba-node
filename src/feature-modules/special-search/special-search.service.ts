@@ -4,7 +4,7 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { SEARCH_CONST } from './special-search.constants';
-import { SpotifyAuthService } from './../../core/services/spotify-auth/spotify-auth.service';
+import { SpotifyAuthService } from '@services/spotify-auth/spotify-auth.service';
 
 @Injectable()
 export class SpecialSearchService {
@@ -33,10 +33,7 @@ export class SpecialSearchService {
    * @param {string} token spotify app auth access token
    * @returns {Observable<AxiosResponse<any>>}
    */
-  private doSearch(
-    criteria: string,
-    token: string,
-  ): Observable<AxiosResponse<any>> {
+  private doSearch( criteria: string, token: string, ): Observable<AxiosResponse<any>> {
     const url = `${ SEARCH_CONST.ENDPOINT }?q=${criteria}&type=${SEARCH_CONST.SEARCH_ITEMS.join(',')}&limit=${ SEARCH_CONST.LIMIT }&offset=${SEARCH_CONST.OFFSET}`;
     const config: AxiosRequestConfig = {
       headers: {

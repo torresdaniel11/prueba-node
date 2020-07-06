@@ -1,5 +1,6 @@
-export interface RelatedArtist {
-  name: string;
-  followers: number;
-  popularity: number;
+import { Artist } from './artist';
+
+export interface ArtistsResponse {
+  artists: Artist[];
+  genres: string[];
 }

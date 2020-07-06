@@ -1,4 +1,6 @@
+import { HttpModule } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { SpotifyAuthService } from './spotify-auth.service';
 
 describe('SpotifyAuthService', () => {
@@ -6,6 +8,7 @@ describe('SpotifyAuthService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [HttpModule],
       providers: [SpotifyAuthService],
     }).compile();
 

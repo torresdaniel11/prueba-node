@@ -15,6 +15,8 @@ export class SpecialSearchController {
    */
   @Get()
   search(@Query('q') q: string): Observable<any> {
+    console.log('[GET] /special-search -d ', q)
+
     return this.specialSearchService.search(q);
   }
 }
