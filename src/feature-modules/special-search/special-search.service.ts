@@ -21,7 +21,6 @@ export class SpecialSearchService {
    */
   search(criteria: string): Observable<any> {
     return this.spotifyAuth.getToken().pipe(
-      map((response: AxiosResponse) => response.data),
       switchMap((token: string) => this.doSearch(criteria, token)),
     );
   }
